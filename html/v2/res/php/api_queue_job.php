@@ -4,11 +4,11 @@ require "./helpers.php";
 
 function main() {
 	// Minimum number of characters allowed in username.
-	define("MIN_CHARS", 4);
+	const MIN_CHARS = 4;
 	// Maximum number of characters allowed in username.
-	define("MAX_CHARS", 16);
+	const MAX_CHARS = 16;
 	// Lowercase alphanumeric characters allowed in username.
-	define("VALID_REGEX", '/^[a-z0-9]+$/');
+	const VALID_REGEX = '/^[a-z0-9]+$/';
 
 	/* Start of username validation */
 	$username = $_POST["username"] ?? "";
@@ -21,19 +21,24 @@ function main() {
 	/* End of username validation. */
 
 	// No extension. 12-char long hex file name.
-	$jobFile = bin2hex(random_bytes(6));
-	$resultFile = QUEUE_RESULTS_DIR . "/$jobFile";
+	$jobFileName = bin2hex(random_bytes(6));
+	$jobFilePath = QUEUE_DIR . "/$jobFileName";
+	$resultFilePath = QUEUE_RESULTS_DIR . "/$jobFileName";
 
 	// Check if user already exists (quick check to save queue time)
-	if (file_exists($jobFile) || file_exists($resultFile)) {
+	if (file_exists($jobFilePath) || file_exists($resultFilePath)) {
 		return jsonRes(false, "Already in queue. Hold on.");
 	}
-	if (file_put_contents($jobFile, $username) === false) {
+	if (file_put_contents($jobFilePath, $username) === false) {
 		return jsonRes(false, "System Busy (IO Error). Try again later.");
 	}
 
 	// Success! Queue file created and waiting for results.
-	return jsonRes(true, "Job queued.");
+	return json_encode([
+		"success" => true,
+		"message" => "Job queued correctly. Please wait.",
+		"hashId" => $jobFileName
+	]);
 }
 
 echo main();

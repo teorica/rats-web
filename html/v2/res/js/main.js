@@ -40,8 +40,8 @@ async function submitJob() {
 		// Constantly query the server for the 
 		// result.
 		statusDiv.innerHTML = "Job queued. Waiting for observer daemon...";
-		const hashid = result.hashid;
-		console.log("Hash: " + hashid);
+		const hashId = result.hashId;
+		console.log("Hash: " + hashId);
 		//pollStatus(user);
 	} catch (e) {
 		statusDiv.innerHTML = "Network Error.";
