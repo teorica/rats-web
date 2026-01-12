@@ -5,42 +5,47 @@ const STATUS_CHECKER_ENDPOINT = "api_check_status.php";
 
 
 async function submitJob() {
-	const user = document.getElementById('username').value;
+	const username = document.getElementById('username').value;
 	const statusDiv = document.getElementById('status');
-	const btn = document.querySelector('button');
+	const submitBtn = document.querySelector('button');
 
-	if (!user) return;
-	if (!regex.test(user)) {
+	if (!username) {
+		statusDiv.innerHTML = "Empty username. Try again.";
+		return;
+	}
+	if (!VALID_REGEX.test(user)) {
 		statusDiv.innerHTML = "Invalid username. Try again."
 		return;
 	}
 
 	// 1. Send Request
-	btn.disabled = true;
-	statusDiv.innerHTML = "Creating job ticket...";
+	submitBtn.disabled = true;
+	statusDiv.innerHTML = "Sending your data. Hold on.";
 
 	try {
-		let response = await fetch('api_queue_job.php', {
+		let request = await fetch(QUEUE_ADDER_ENDPOINT, {
 		method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'username=' + encodeURIComponent(user)
+			body: 'username=' + encodeURIComponent(username)
 	});
 
-		let data = await response.json();
-
-		if(!data.success) {
-			statusDiv.innerHTML = "ERROR: " + data.message;
-			btn.disabled = false;
+		let result = await request.json();
+		if (result.success === false) {
+			statusDiv.innerHTML = result.message;
+			submitBtn.disabled = false;
 			return;
 		}
 
-		// 2. Start Polling
+		// Username correctly sent to be processed.
+		// Constantly query the server for the 
+		// result.
 		statusDiv.innerHTML = "Job queued. Waiting for observer daemon...";
-		pollStatus(user);
-
+		const hashid = result.hashid;
+		console.log("Hash: " + hashid);
+		//pollStatus(user);
 	} catch (e) {
 		statusDiv.innerHTML = "Network Error.";
-		btn.disabled = false;
+		submitBtn.disabled = false;
 	}
 }
 
