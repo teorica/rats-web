@@ -1,5 +1,5 @@
-// Alphanumeric lowcase characters, minumum 3, maximum 16.
-const VALID_REGEX = /^[a-z0-9]{3,16}$/;
+// Alphanumeric lowcase characters, minumum 4, maximum 16.
+const VALID_REGEX = /^[a-z0-9]{4,16}$/;
 const QUEUE_ADDER_ENDPOINT = "res/php/queue_job.php";
 const STATUS_CHECKER_ENDPOINT = "res/php/check_status.php";
 
