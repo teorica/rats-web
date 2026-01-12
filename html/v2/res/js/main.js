@@ -67,9 +67,9 @@ async function pollStatus(hashId) {
 				clearInterval(interval);
 				statusDiv.innerHTML = "FAILURE: " + result.message;
 				document.querySelector('button').disabled = false;
-			} else {
-				// Still pending, just add a dot
+			} else if (result.success === "pending") {
 				statusDiv.innerHTML += ".";
+				return;
 			}
 		} catch (e) {
 			clearInterval(interval);
