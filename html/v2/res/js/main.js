@@ -1,7 +1,7 @@
 // Alphanumeric lowcase characters, minumum 3, maximum 16.
 const VALID_REGEX = /^[a-z0-9]{3,16}$/;
-const QUEUE_ADDER_ENDPOINT = "api_queue_job.php";
-const STATUS_CHECKER_ENDPOINT = "api_check_status.php";
+const QUEUE_ADDER_ENDPOINT = "res/php/api_queue_job.php";
+const STATUS_CHECKER_ENDPOINT = "res/php/api_check_status.php";
 
 
 async function submitJob() {
@@ -13,7 +13,7 @@ async function submitJob() {
 		statusDiv.innerHTML = "Empty username. Try again.";
 		return;
 	}
-	if (!VALID_REGEX.test(user)) {
+	if (!VALID_REGEX.test(username)) {
 		statusDiv.innerHTML = "Invalid username. Try again."
 		return;
 	}

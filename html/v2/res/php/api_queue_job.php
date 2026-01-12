@@ -2,14 +2,13 @@
 header('Content-Type: application/json');
 require "./helpers.php";
 
+// Minimum number of characters allowed in username.
+const MIN_CHARS = 4;
+// Maximum number of characters allowed in username.
+const MAX_CHARS = 16;
+// Lowercase alphanumeric characters allowed in username.
+const VALID_REGEX = '/^[a-z0-9]+$/';
 function main() {
-	// Minimum number of characters allowed in username.
-	const MIN_CHARS = 4;
-	// Maximum number of characters allowed in username.
-	const MAX_CHARS = 16;
-	// Lowercase alphanumeric characters allowed in username.
-	const VALID_REGEX = '/^[a-z0-9]+$/';
-
 	/* Start of username validation */
 	$username = $_POST["username"] ?? "";
 	if (!preg_match(VALID_REGEX, $username)) {
