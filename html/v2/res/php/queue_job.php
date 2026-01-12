@@ -8,6 +8,7 @@ const MIN_CHARS = 4;
 const MAX_CHARS = 16;
 // Lowercase alphanumeric characters allowed in username.
 const VALID_REGEX = '/^[a-z0-9]+$/';
+
 function main() {
 	/* Start of username validation */
 	$username = $_POST["username"] ?? "";
