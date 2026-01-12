@@ -1,7 +1,7 @@
 // Alphanumeric lowcase characters, minumum 3, maximum 16.
 const VALID_REGEX = /^[a-z0-9]{3,16}$/;
-const QUEUE_ADDER_ENDPOINT = "res/php/api_queue_job.php";
-const STATUS_CHECKER_ENDPOINT = "res/php/api_check_status.php";
+const QUEUE_ADDER_ENDPOINT = "res/php/queue_job.php";
+const STATUS_CHECKER_ENDPOINT = "res/php/check_status.php";
 
 
 async function submitJob() {
