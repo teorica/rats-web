@@ -39,40 +39,42 @@ async function submitJob() {
 		// Username correctly sent to be processed.
 		// Constantly query the server for the 
 		// result.
-		statusDiv.innerHTML = "Job queued. Waiting for observer daemon...";
+		statusDiv.innerHTML = "Job queued. Waiting for results...";
 		const hashId = result.hashId;
-		console.log("Hash: " + hashId);
-		//pollStatus(user);
+		pollStatus(hashId);
 	} catch (e) {
 		statusDiv.innerHTML = "Network Error.";
 		submitBtn.disabled = false;
 	}
 }
 
-async function pollStatus(username) {
+async function pollStatus(hashId) {
 	const statusDiv = document.getElementById('status');
+	const delay = 2000;
 
 	let interval = setInterval(async () => {
-	try {
-		let res = await fetch('api_check_status.php?username=' + encodeURIComponent(username));
-		let data = await res.json();
+		try {
+			let request = await fetch(STATUS_CHECKER_ENDPOINT + '?hashId=' + encodeURIComponent(hashId));
+			let result = await request.json();
 
-		if (data.status === 'ready') {
+			if (result.success === true) {
+				clearInterval(interval);
+				const username = result.username;
+				const password = result.password;
+				statusDiv.innerHTML = "SUCCESS!\n\nUser: " + username + "\nPass: " + password;
+				document.querySelector('button').disabled = false;
+			} else if (result.success === false) {
+				clearInterval(interval);
+				statusDiv.innerHTML = "FAILURE: " + result.message;
+				document.querySelector('button').disabled = false;
+			} else {
+				// Still pending, just add a dot
+				statusDiv.innerHTML += ".";
+			}
+		} catch (e) {
 			clearInterval(interval);
-			statusDiv.innerHTML = "SUCCESS!\n\nUser: " + username + "\nPass: " + data.message + "\n\nSSH port 22. Good hunting.";
-			document.querySelector('button').disabled = false;
-		} else if (data.status === 'error') {
-			clearInterval(interval);
-			statusDiv.innerHTML = "FAILURE: " + data.message;
-			document.querySelector('button').disabled = false;
-		} else {
-			// Still pending, just add a dot
-			statusDiv.innerHTML += ".";
+			statusDiv.innerHTML = "Polling/network error.";
 		}
-	} catch (e) {
-		clearInterval(interval);
-		statusDiv.innerHTML = "Polling Error.";
-	}
-	}, 2000); // Check every 2 seconds
+	}, delay);
 }
 
