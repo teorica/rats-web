@@ -57,7 +57,10 @@ async function pollStatus(hashId) {
 			let request = await fetch(STATUS_CHECKER_ENDPOINT + '?hashId=' + encodeURIComponent(hashId));
 			let result = await request.json();
 
-			if (result.success === true) {
+			if (result.success === false && result.message === "pending") {
+				statusDiv.innerHTML += ".";
+				return;
+			} else if (result.success === true) {
 				clearInterval(interval);
 				const username = result.username;
 				const password = result.password;
@@ -67,13 +70,11 @@ async function pollStatus(hashId) {
 				clearInterval(interval);
 				statusDiv.innerHTML = "FAILURE: " + result.message;
 				document.querySelector('button').disabled = false;
-			} else if (result.success === "pending") {
-				statusDiv.innerHTML += ".";
-				return;
 			}
 		} catch (e) {
 			clearInterval(interval);
 			statusDiv.innerHTML = "Polling/network error.";
+			document.querySelector('button').disabled = false;
 		}
 	}, delay);
 }

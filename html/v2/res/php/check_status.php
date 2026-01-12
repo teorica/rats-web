@@ -13,7 +13,7 @@ function main() {
 		return trim(file_get_contents($resultFilePath));
 	} else {
 		// File not created yet do nothing.
-		return jsonRes("pending", "");
+		return jsonRes(false, "pending");
 	}
 }
 
