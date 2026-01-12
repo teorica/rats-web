@@ -11,7 +11,6 @@ function main() {
 	$resultFilePath = QUEUE_RESULTS_DIR . "/$hashId";
 	if (file_exists($resultFilePath)) {
 		return trim(file_get_contents($resultFilePath));
-		unlink($resultFilePath);
 	} else {
 		// File not created yet do nothing.
 		return jsonRes(false, "pending");
