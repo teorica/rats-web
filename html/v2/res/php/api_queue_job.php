@@ -3,36 +3,37 @@ header('Content-Type: application/json');
 require "./helpers.php";
 
 function main() {
-	if (empty($_POST["username"])) {
-		return jsonRes(false, "Username required.");
-	}
+	// Minimum number of characters allowed in username.
+	define("MIN_CHARS", 4);
+	// Maximum number of characters allowed in username.
+	define("MAX_CHARS", 16);
+	// Lowercase alphanumeric characters allowed in username.
+	define("VALID_REGEX", '/^[a-z0-9]+$/');
 
-	$user = $_POST["username"];
-	if (!preg_match('/^[a-z0-9]+$/', $user)) {
-		return jsonRes(false, "Invalid characters. Only a-z and 0-9 allowed.");
+	/* Start of username validation */
+	$username = $_POST["username"] ?? "";
+	if (!preg_match(VALID_REGEX, $username)) {
+		return jsonRes(false, "Invalid characters. Try again.");
 	}
-
-	if (strlen($user) > 15 || strlen($user) < 3) {
-		return jsonRes(false, "Username must be between 3 and 15 chars.");
+	if (strlen($username) > MAX_CHARS || strlen($username) < MIN_CHARS) {
+		return jsonRes(false, "Username must be between " . MIN_CHARS . " and " . MAX_CHARS . " chars.");
 	}
+	/* End of username validation. */
 
-	// 3. Create Ticket
-	$queueDir = "/opt/rats/queue";
-	$jobFile = "$queueDir/$user.job";
-	$resultFile = "/opt/rats/results/$user.job";
+	// No extension. 12-char long hex file name.
+	$jobFile = bin2hex(random_bytes(6));
+	$resultFile = QUEUE_RESULTS_DIR . "/$jobFile";
 
 	// Check if user already exists (quick check to save queue time)
 	if (file_exists($jobFile) || file_exists($resultFile)) {
-		return jsonRes(false, "User is already being processed or exists.");
+		return jsonRes(false, "Already in queue. Hold on.");
 	}
-
-	// Write empty job file
-	if (file_put_contents($jobFile, "") === false) {
-		// This handles the "Disk Full" or "Permission Denied" case gracefully
+	if (file_put_contents($jobFile, $username) === false) {
 		return jsonRes(false, "System Busy (IO Error). Try again later.");
 	}
 
+	// Success! Queue file created and waiting for results.
 	return jsonRes(true, "Job queued.");
 }
-main();
-?>
+
+echo main();
