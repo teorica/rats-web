@@ -13,7 +13,7 @@ function main() {
 		return file_get_contents($resultFilePath);
 	} else {
 		// File not created yet do nothing.
-		return;
+		return jsonRes("pending", "");
 	}
 }
 
