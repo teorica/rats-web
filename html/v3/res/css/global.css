@@ -2,27 +2,38 @@
 	--paper:    #f0e7d6; /* Canvas */
 	--chassis:  #9dbdb8; /* Structure/Blocks */
 	--switch:   #ea2e00; /* Action/Alert */
-	--ink:      #1a1a1a; /* Text */
+	--ink:      #1a1a1a; /* Text (Near Black for readability) */
+
 	--font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	--font-mono: 'Courier New', Courier, monospace;
+	--font-mono: 'Courier New', Courier, monospace; 
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+a { text-decoration: none; color: var(--ink); }
 
 body {
 	background-color: var(--paper);
 	color: var(--ink);
 	font-family: var(--font-main);
 	line-height: 1.5;
-	border-top: 8px solid var(--switch); /* Top orange edge */
+	border-top: 7px solid var(--switch); /* Top edge */
 }
-
-a { text-decoration: none; color: var(--ink); }
-
+.hamburger div {
+	width: 45px;
+	height: 7px;
+	margin: 5px 0;
+	background: var(--switch);
+	border-radius: 10px;
+}
+.visible-xs {
+	display: block;
+}
+.hidden-xs {
+	display: none;
+}
 .global-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 20px;
+	margin: 0;
+	padding: 0 10px;
 	border-left: 1px solid var(--chassis);
 	border-right: 1px solid var(--chassis);
 	min-height: 100vh;
@@ -184,3 +195,4 @@ footer {
 	display: inline-block;
 	margin-right: 5px;
 }
+
