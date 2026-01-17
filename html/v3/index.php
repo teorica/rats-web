@@ -18,7 +18,7 @@
 						<li>
 							<a href="#">[ Hosting WordPress ] <span>&gt;&gt;</span></a>
 						</li>
-						<li>
+						<li class="with-borders">
 							<a href="#">[ Dominios ] <span>&gt;&gt;</span></a>
 						</li>
 						<li>
