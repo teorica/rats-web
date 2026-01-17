@@ -9,7 +9,7 @@ hamburger.onclick = () => {
 // Speed test
 async function ping() {
 	const start = performance.now();
-	const url = "https://www.odontologos-del-valle.com/?t=" + new Date().getTime();
+	const url = window.location.href + "?t=" + new Date().getTime();
 	try {
 		await fetch(url, {
 			method: 'HEAD',
