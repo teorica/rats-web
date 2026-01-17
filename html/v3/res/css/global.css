@@ -84,8 +84,7 @@ nav a span {
 	margin-left: 10px;
 }
 nav li {
-	padding: 20px 0;
-	border-bottom: 1px solid var(--switch);
+	margin: 20px 0;
 }
 
 main {

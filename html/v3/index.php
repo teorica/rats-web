@@ -36,7 +36,6 @@
 						<p class="mono">
 						Tus clientes están en Latam. Tus servidores también deberían estarlo. Infraestructura física en Bogotá.
 						</p>
-						<a href="#" class="btn">PONNOS A PRUEBA ></a>
 					</div>
 
 					<div class="telemetriaBox">
