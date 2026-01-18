@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/v3/res/css/global.css">
+		<link rel="stylesheet" href="/v3/res/css/index.css">
 		<title>Dominio y WordPress Hosting en LATAM</title>
 	</head>
 	<body>
@@ -31,6 +32,7 @@
 			<main>
 				<section class="hero-container">
 
+					<!-- First major block -->
 					<div class="hero-text">
 						<h1>Hosting WordPress en LATAM. Precios desde $15 USD.</h1>
 						<p class="mono">
@@ -38,12 +40,61 @@
 						</p>
 					</div>
 
+					<!-- Second major block -->
 					<div class="telemetriaBox">
+						<div class="specs-panel">
+							<div class="panel-badge">MONITOR</div>
+
+							<div class="panel-header">
+								<div style="width: 8px; height: 8px; background: var(--switch); border-radius: 50%; margin-right: 10px; animation: blink 1s infinite;"></div>
+								<style>@keyframes blink { 0%,100% {opacity:1;} 50% {opacity:0.3;} }</style>
+								TIEMPO DE CONEXIÓN [ LATENCIA ] 
+							</div>
+
+							<div class="metric-row">
+								<div class="metric-label">🇨🇴 COLOMBIA</div>
+								<div class="metric-data">
+									<span class="val-main" id="lat-co" data-base="12" data-var="2">12 ms</span>
+									<span class="val-comp">vs Miami: <span>65ms</span></span>
+								</div>
+							</div>
+
+							<div class="metric-row">
+								<div class="metric-label">🇪🇨 ECUADOR</div>
+								<div class="metric-data">
+									<span class="val-main" id="lat-ec" data-base="25" data-var="3">25 ms</span>
+									<span class="val-comp">vs Miami: <span>90ms</span></span>
+								</div>
+							</div>
+
+							<div class="metric-row">
+								<div class="metric-label">🇵🇪 PERÚ</div>
+								<div class="metric-data">
+									<span class="val-main" id="lat-pe" data-base="48" data-var="4">48 ms</span>
+									<span class="val-comp">vs Miami: <span>85ms</span></span>
+								</div>
+							</div>
+
+							<div class="metric-row">
+								<div class="metric-label">🇨🇱 CHILE</div>
+								<div class="metric-data">
+									<span class="val-main" id="lat-cl" data-base="78" data-var="5">78 ms</span>
+									<span class="val-comp">vs Miami: <span>130ms</span></span>
+								</div>
+							</div>
+
+							<div class="status-box">
+								<strong>--> STATUS: ONLINE</strong><br>
+								<span style="opacity: 0.8;">UPDATING EVERY 2000ms</span>
+							</div>
+						</div>
+
 					</div>
 				</section>
 			</main>
 
 		</div><!-- end of global container -->
 		<script src="/v3/res/js/global.js"></script>
+		<script src="/v3/res/js/index.js"></script>
 	</body>
 </html>

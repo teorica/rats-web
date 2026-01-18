@@ -1,0 +1,104 @@
+.specs-panel {
+	width: 100%;
+	max-width: 380px;
+	min-width: 300px;
+	background-color: rgba(255,255,255, 0.4); 
+	border: 2px solid var(--ink); 
+	position: relative;
+	box-shadow: 6px 6px 0px rgba(0,0,0,0.1); 
+	padding: 1.5rem; 
+}
+.panel-badge {
+	position: absolute;
+	top: -12px;
+	right: 15px;
+	background-color: var(--switch);
+	color: var(--paper);
+	padding: 4px 8px;
+	font-family: var(--font-mono);
+	font-weight: bold;
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	z-index: 2;
+	animation: pulseBadge 3s infinite;
+}
+@keyframes pulseBadge {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.8; }
+}
+.panel-header {
+	border-bottom: 2px solid var(--chassis); 
+	padding-bottom: 12px; 
+	margin-bottom: 20px; 
+	font-family: var(--font-main); 
+	font-weight: bold;
+	font-size: 0.85rem;
+	color: var(--ink);
+	display: flex;
+	align-items: center;
+	letter-spacing: -0.5px;
+}
+.metric-row {
+	display: flex; 
+	justify-content: space-between; 
+	align-items: center; 
+	margin-bottom: 12px; 
+	padding-bottom: 8px;
+	border-bottom: 1px dotted var(--chassis);
+}
+.metric-row:last-of-type {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+.metric-label {
+	font-family: var(--font-main);
+	font-weight: bold;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	color: var(--ink);
+}
+.metric-data {
+	text-align: right;
+	line-height: 1.2;
+}
+.val-main {
+	font-family: var(--font-mono);
+	font-weight: 900;
+	font-size: 1.1rem;
+	color: var(--switch);
+	background-color: rgba(157, 189, 184, 0.3);
+	padding: 0 4px;
+	transition: all 0.2s ease;
+	display: inline-block;
+	min-width: 60px;
+	text-align: center;
+}
+.ping-flash {
+	background-color: rgba(157, 189, 184, 0.9);
+	color: var(--paper);
+	transform: scale(1.05);
+}
+.val-comp {
+	display: block;
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	color: #666;
+	margin-top: 2px;
+}
+.val-comp span {
+	opacity: 0.6;
+}
+.status-box {
+	background: var(--ink);
+	color: var(--paper);
+	padding: 12px;
+	font-size: 0.75rem;
+	text-align: center;
+	font-family: var(--font-mono);
+	margin-top: 25px;
+	border-left: 4px solid var(--switch);
+}
+.hero-container > div {
+	margin: 45px 0;
+}
