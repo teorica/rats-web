@@ -108,6 +108,22 @@
 					</div>
 				</section>
 
+				<!-- Engine room -->
+				<section class="hw-box">
+					<h2>Conoce Nuestra Arquitectura</h2>
+					<p>Servidores Construidos Para Durar</p>
+					<div class="divider"></div>
+
+					<div class="container">
+
+						<div class="card">
+							<span>procesador</span>
+							<h3>ARM Ampere® Altra®</h3>
+						</div>
+
+					</div>
+				</section>
+
 			</main>
 		</div><!-- end of global container -->
 
