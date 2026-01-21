@@ -119,10 +119,25 @@ section {
 }
 .card {
 	background-color: rgba(255, 255, 255, 0.4);
+	padding: 30px;
+	border: 1px solid var(--ink);
+	border-left: 5px solid;
 }
 .card span {
 	display: block;
 	text-align: right;
-	margin-bottom: 25px;
+	margin-bottom: 35px;
 	font-family: var(--font-mono);
+	color: var(--chassis);
+	font-weight: bold;
+}
+.card p {
+	font-family: var(--font-mono);
+	margin: 10px 0 40px;
+}
+.cta-btn {
+	background: var(--switch);
+	color: white;
+	text-decoration: none;
+	padding: 10px 20px;
 }

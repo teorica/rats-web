@@ -119,6 +119,11 @@
 						<div class="card">
 							<span>procesador</span>
 							<h3>ARM Ampere® Altra®</h3>
+							<p>
+							Ni INTEL ni AMD. Tu código se ejecuta en la misma tecnología moderna que <strong>Apple® M-SERIES y AWS® Graviton.</strong><br><br>
+							Potencia, velocidad y eficiencia para tu sitio web.
+							</p>
+							<a href="" class="cta-btn">Empezar ya!</a>
 						</div>
 
 					</div>
