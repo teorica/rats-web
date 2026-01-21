@@ -7,6 +7,7 @@
 	position: relative;
 	box-shadow: 6px 6px 0px rgba(0,0,0,0.1); 
 	padding: 1.5rem; 
+	margin-top: 30px;
 }
 .panel-badge {
 	position: absolute;
@@ -99,6 +100,20 @@
 	margin-top: 25px;
 	border-left: 4px solid var(--switch);
 }
-.hero-container > div {
-	margin: 45px 0;
+
+.feature-box {
+	background-color: rgba(157, 189, 184, 0.1);
+	padding: 2rem;
+	border-top: 1px solid var(--chassis);
+}
+.feature-box h3 {
+	font-family: var(--font-mono);
+	color: var(--chassis);
+	font-size: 3rem;
+}
+.feature-box p {
+	font-weight: bold;
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 }

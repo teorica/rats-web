@@ -91,9 +91,26 @@
 
 					</div>
 				</section>
-			</main>
 
+				<!-- 3 principales -->
+				<section class="three-first-box">
+					<div class="feature-box">
+						<h3>24/7</h3>
+						<p>Soporte via WhatsApp</p>
+					</div>
+					<div class="feature-box">
+						<h3>99.9%</h3>
+						<p>Server Uptime</p>
+					</div>
+					<div class="feature-box">
+						<h3>35ms</h3>
+						<p>Latencia en LATAM (avg.)</p>
+					</div>
+				</section>
+
+			</main>
 		</div><!-- end of global container -->
+
 		<script src="/v3/res/js/global.js"></script>
 		<script src="/v3/res/js/index.js"></script>
 	</body>
