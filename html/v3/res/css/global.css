@@ -34,6 +34,7 @@ body {
 	background: var(--switch);
 	border-radius: 10px;
 }
+/* whole body container */
 .global-container {
 	margin: 0;
 	padding: 0 10px;
@@ -86,15 +87,12 @@ nav a span {
 nav li {
 	margin: 20px 0;
 }
-
-.hero {
-	padding: 5rem 0;
-	border-bottom: 1px solid var(--chassis);
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	gap: 2rem;
+.hero-text {
+	margin-bottom: 60px;
 }
-
+.hero-text p {
+	margin-bottom: 30px;
+}
 h1 {
 	font-size: 35px;
 	line-height: 40px;
@@ -136,9 +134,9 @@ section {
 	display: block;
 	text-align: right;
 	margin-bottom: 35px;
-	font-family: var(--font-mono);
 	color: var(--chassis);
 	font-weight: bold;
+	text-transform: uppercase;
 }
 .card p {
 	font-family: var(--font-mono);
@@ -149,4 +147,57 @@ section {
 	color: white;
 	text-decoration: none;
 	padding: 10px 20px;
+}
+footer {
+	font-family: var(--font-mono);
+	background: black;
+	border-top: 5px solid var(--switch);
+	padding: 30px 40px;
+	color: #777;
+}
+footer h3 {
+	text-transform: uppercase;
+	color: white;
+	margin: 10px 0;
+}
+footer ul {
+	list-style: none;
+}
+footer a {
+	color: #818181;
+}
+footer li {
+	padding: 4px 0;
+}
+footer > div {
+	margin: 30px 0;
+}
+
+@media (min-width: 768px) {
+	.hero-container {
+		display: flex;
+	}
+	.three-first-box {
+		display: flex;
+	}
+	.three-first-box > div {
+		flex: 1 1 0;
+		border-block: 1px solid var(--chassis);
+	}
+	.hw-box .container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		justify-content: space-around;
+	}
+	.hw-box .card {
+		margin: 20px 0;
+	}
+	.hw-box .container > div {
+		width: 45%;
+	}
+	footer .container {
+		display: flex;
+		justify-content: space-between;
+	}
 }

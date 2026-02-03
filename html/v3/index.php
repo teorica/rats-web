@@ -38,6 +38,7 @@
 						<p class="mono">
 						Tus clientes están en Latam. Tus servidores también deberían estarlo. Infraestructura física en Bogotá.
 						</p>
+						<a href="" class="cta-btn">Enviar WhatsApp</a>
 					</div>
 
 					<!-- Second major block -->
@@ -85,7 +86,6 @@
 
 							<div class="status-box">
 								<strong>--> STATUS: ONLINE</strong><br>
-								<span style="opacity: 0.8;">UPDATING EVERY 2000ms</span>
 							</div>
 						</div>
 
@@ -98,7 +98,7 @@
 						<h3>24/7</h3>
 						<p>Soporte via WhatsApp</p>
 					</div>
-					<div class="feature-box">
+					<div style="border-inline: 1px solid var(--chassis)" class="feature-box">
 						<h3>99.9%</h3>
 						<p>Server Uptime</p>
 					</div>
@@ -146,10 +146,52 @@
 							<a href="" class="cta-btn">Empezar ya!</a>
 						</div>
 
+						<div class="card">
+							<span>procesador</span>
+							<h3>ARM Ampere® Altra®</h3>
+							<p>
+							Ni INTEL ni AMD. Tu código se ejecuta en la misma tecnología moderna que <strong>Apple® M-SERIES y AWS® Graviton.</strong><br><br>
+							Potencia, velocidad y eficiencia para tu sitio web.
+							</p>
+							<a href="" class="cta-btn">Empezar ya!</a>
+						</div>
+
 					</div>
 				</section>
 
 			</main>
+			<footer>
+
+				<div class="container">
+					<div>
+						<h3>SERVICIOS</h3>
+						<ul>
+							<li><a href="">Hosting WordPress</a></li>
+							<li><a href="">Hosting PHP</a></li>
+							<li><a href="">Dominios</a></li>
+						</ul>
+					</div>
+
+					<div>
+						<h3>SERVICIOS</h3>
+						<ul>
+							<li><a href="">Hosting WordPress</a></li>
+							<li><a href="">Hosting PHP</a></li>
+							<li><a href="">Dominios</a></li>
+						</ul>
+					</div>
+
+					<div>
+						<h3>SERVICIOS</h3>
+						<ul>
+							<li><a href="">Hosting WordPress</a></li>
+							<li><a href="">Hosting PHP</a></li>
+							<li><a href="">Dominios</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</footer>
 		</div><!-- end of global container -->
 
 		<script src="/v3/res/js/global.js"></script>

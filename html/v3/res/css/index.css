@@ -117,3 +117,11 @@
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
+@media (max-width: 768px) {
+	p {
+		font-size: 1.2rem;
+	}
+	.specs-panel {
+		margin: 0;
+	}
+}
